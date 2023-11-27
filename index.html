@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+
+        }
+        section{
+            background-color:rgb(74,74,74);
+            height: 15rem;
+            width: 35rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content:space-evenly ;
+            border-radius: 15px;
+        }
+        [type="submit"]{
+
+            width: 5rem;
+            padding: 10px;
+            border-radius: 10px;
+            color: white;
+            font-weight: bold;
+            border: 2px solid white;
+            background-color: purple;
+        }
+        [type="text"]{
+            width:20rem;
+            font-size: 14px;
+            padding: 10px;
+            border-radius: 10px;
+            border: 2px solid white;
+            background-color: rgb(74, 74, 74);
+            color: white;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div>
+            <h1><i>Make a Guess !</i></h1>
+        </div>
+        <form action="">
+            <label for="##"><i>Enter a Number Between (0 - 10).</i></label><br><br>
+            <input type="text" name="text" placeholder="Enter Value Here..." id="##" class="inputFeild">
+            <input type="submit" value="DONE" id="submit">
+        </form>
+    </section>
+    <script>
+        const doneButton = document.querySelector("#submit");
+        let randomValue = Math.trunc(Math.random()*11);
+        function validateState(event){
+            // event.preventDefault()
+            const inputFeild = document.querySelector(".inputFeild");
+            let inputValue = inputFeild.value;
+            // console.log(inputValue)
+            if(inputValue === randomValue){
+                alert("Congratulation's ! You Won. 🎉 ")
+            }else if(inputValue === ""){
+                alert("Enter a Valid Input !")
+            }
+            else{
+                alert("OOPS..! You Loose. Please Try Again 🤪 ")
+            }
+        }
+
+        doneButton.addEventListener("click",validateState);
+
+    </script>
+</body>
+</html>
